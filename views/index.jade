@@ -1,5 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 HLS Analyzer by Eyevinn
+  div
+    form(method="post")
+      div.form-group
+        input.form-control(name="hlsfile", type="text", value="Paste URL here")
+      div.form-group
+        button.btn.btn-default(type="submit") Submit
+
+  if bitrates_list.length > 0
+    div(id="bitrates")
+      form(method="post", action="/convert")
+        table.table
+          tr
+            th Name
+            th Bitrate
+            th 
+          each b in bitrates_list
+            tr
+              td: p= b.filename
+              td: p= b.bitrate
+              td: a.btn.btn-default(href='#{b.convlink}') Convert
+    
