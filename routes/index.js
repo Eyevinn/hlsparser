@@ -27,7 +27,7 @@ router.post('/', function(req, res) {
     var o = { 'filename': uri,
               'bitrate': item.attributes.attributes.bandwidth,
               'uri_b64': b.toString('base64'),
-              'convlink': 'http://labs.eyevinn.se/conv.php?source=' + b.toString('base64') + '&name=' + shortid.generate() + '&type=mp4' };
+              'convlink': 'http://labs.eyevinn.se/convapi.php?source=' + b.toString('base64') + '&name=' + shortid.generate() + '&type=mp4' };
     l.push(o);    
   });
 
